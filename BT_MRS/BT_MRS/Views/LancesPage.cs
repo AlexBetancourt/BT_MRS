@@ -20,5 +20,9 @@ namespace BT_MRS.Views
 		{
             this.Title =_companyName;
         }
-	}
+        public LancesPage()
+        {
+
+        }
+    }
 }
