@@ -115,9 +115,39 @@ namespace BT_MRS.Views
             stackLayout.Children.Add(button);
             stackLayout.BackgroundColor = Color.Gray;
 
+            box = new BoxView();
+            box.Color = Color.Black;
+            box.WidthRequest = 100;
+            box.HeightRequest = 2;
+            stackLayout.Children.Add(box);
 
+            img = new Image();
+            img.Source = "BlankArmor.jpg";
+            img.HeightRequest = 120;
+            img.WidthRequest = 600;
+            stackLayout.Children.Add(img);
+
+            lbl = new Label();
+            lbl.Text = "Record Sheets";
+            lbl.FontSize = 40;
+            lbl.HorizontalTextAlignment = TextAlignment.Center;
+            lbl.TextColor = Color.White;
+            stackLayout.Children.Add(lbl);
+
+            button = new Button();
+            button.Text = "Record Sheet";
+            button.Clicked += btn_RS_Clicked;
+            stackLayout.Children.Add(button);
+            stackLayout.BackgroundColor = Color.Gray;
+
+            CompressedLayout.SetIsHeadless(stackLayout, true);
             Content = new ScrollView { Content = stackLayout };
 
+        }
+
+        private async void btn_RS_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new RecordSheet());
         }
 
         private async void btn_Add_Pilot_Clicked(object sender, EventArgs e)
