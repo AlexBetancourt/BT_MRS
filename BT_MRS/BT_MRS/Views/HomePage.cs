@@ -9,9 +9,13 @@ namespace BT_MRS.Views
 {
 	public class HomePage : ContentPage
 	{
-		public HomePage ()
+       
+
+        public HomePage ()
 		{
             this.Title = "Main Menu";
+            var scroll = new ScrollView();
+            Content = scroll;
             StackLayout stackLayout = new StackLayout();
 
             Image img = new Image();
@@ -61,7 +65,6 @@ namespace BT_MRS.Views
             img.WidthRequest = 600;
             stackLayout.Children.Add(img);
 
-
             lbl = new Label();
             lbl.Text = "Lances";
             lbl.FontSize = 40;
@@ -76,23 +79,65 @@ namespace BT_MRS.Views
             stackLayout.BackgroundColor = Color.Gray;
 
             button = new Button();
-            button.Text = "Manage Lance";
+            button.Text = "Manage Lances";
             button.Clicked += btn_Edit_Lance_Clicked;
             stackLayout.Children.Add(button);
             stackLayout.BackgroundColor = Color.Gray;
 
-            Content = stackLayout;
+            box = new BoxView();
+            box.Color = Color.Black;
+            box.WidthRequest = 100;
+            box.HeightRequest = 2;
+            stackLayout.Children.Add(box);
 
+            img = new Image();
+            img.Source = "Pilots.jpg";
+            img.HeightRequest = 120;
+            img.WidthRequest = 600;
+            stackLayout.Children.Add(img);
+
+            lbl = new Label();
+            lbl.Text = "Pilots";
+            lbl.FontSize = 40;
+            lbl.HorizontalTextAlignment = TextAlignment.Center;
+            lbl.TextColor = Color.White;
+            stackLayout.Children.Add(lbl);
+
+            button = new Button();
+            button.Text = "Add Pilot";
+            button.Clicked += btn_Add_Pilot_Clicked;
+            stackLayout.Children.Add(button);
+            stackLayout.BackgroundColor = Color.Gray;
+
+            button = new Button();
+            button.Text = "Manage Pilots";
+            button.Clicked += btn_Edit_Pilot_Clicked;
+            stackLayout.Children.Add(button);
+            stackLayout.BackgroundColor = Color.Gray;
+
+
+            Content = new ScrollView { Content = stackLayout };
+
+        }
+
+        private async void btn_Add_Pilot_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new AddPilotPage());
+        }
+
+        private async void btn_Edit_Pilot_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new EditPilotPage());
         }
 
         private async void btn_Edit_Lance_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new LancesPage());
+            await Navigation.PushAsync(new EditLancePage());
         }
 
         private async void btn_Add_Lance_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new LancesPage());
+            await Navigation.PushAsync(new AddLancePage());
         }
 
         //private async void btn_Delete_Companies_Clicked(object sender, EventArgs e)

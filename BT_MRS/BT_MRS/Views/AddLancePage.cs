@@ -9,18 +9,18 @@ using Xamarin.Forms;
 
 namespace BT_MRS.Views
 {
-	public class LancesPage : ContentPage
+	public class AddLancePage : ContentPage
 	{
         Company _company = new Company();
         private Label _companyName;
         private Label _companyID;
         string _dbPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "BT_DB.db3");
 
-        public LancesPage (int _companyID, string _companyName)
+        public AddLancePage (int _companyID, string _companyName)
 		{
             this.Title =_companyName;
         }
-        public LancesPage()
+        public AddLancePage()
         {
 
         }

@@ -103,6 +103,9 @@
     <AndroidResource Include="Resources\drawable\Lance.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Pilots.jpg" />
+  </ItemGroup>
+  <ItemGroup>
     <AndroidResource Include="Resources\drawable\Annihilator.png" />
   </ItemGroup>
   <ItemGroup>
@@ -127,10 +130,13 @@
     <AndroidResource Include="Resources\drawable\Battlemaster.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Black Knight.jpg" />
+    <AndroidResource Include="Resources\drawable\Black_Knight.jpg" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Blackjack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\BlankArmor.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Bombardier.jpg" />
@@ -235,10 +241,10 @@
     <AndroidResource Include="Resources\drawable\Goliath.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Grand Dragon.png" />
+    <AndroidResource Include="Resources\drawable\Grand_Dragon.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Grand Panther.png" />
+    <AndroidResource Include="Resources\drawable\Grand_Panther.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Grasshopper.jpg" />
@@ -253,16 +259,16 @@
     <AndroidResource Include="Resources\drawable\Hammerhands.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Hatamoto-Chi.png" />
+    <AndroidResource Include="Resources\drawable\Hatamoto_Chi.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Hatchetman.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Hermes II.png" />
+    <AndroidResource Include="Resources\drawable\Hermes.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Hermes.jpg" />
+    <AndroidResource Include="Resources\drawable\Hermes_II.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Highlander.jpg" />
@@ -280,7 +286,7 @@
     <AndroidResource Include="Resources\drawable\Hussar.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Icarus II.jpg" />
+    <AndroidResource Include="Resources\drawable\IcarusII.jpg" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Imp.png" />
@@ -295,7 +301,7 @@
     <AndroidResource Include="Resources\drawable\Jenner.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\King Crab.jpg" />
+    <AndroidResource Include="Resources\drawable\King_Crab.jpg" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Kintaro.png" />
@@ -322,10 +328,10 @@
     <AndroidResource Include="Resources\drawable\Mackie.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Marauder II.png" />
+    <AndroidResource Include="Resources\drawable\Marauder.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Marauder.png" />
+    <AndroidResource Include="Resources\drawable\Marauder_II.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Mercury.png" />
@@ -352,10 +358,10 @@
     <AndroidResource Include="Resources\drawable\Panther.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Phoenix Hawk.png" />
+    <AndroidResource Include="Resources\drawable\Phoenix.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Phoenix.jpg" />
+    <AndroidResource Include="Resources\drawable\Phoenix_Hawk.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Pillager.jpg" />
@@ -382,7 +388,7 @@
     <AndroidResource Include="Resources\drawable\Sentinel.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Shadow Hawk.png" />
+    <AndroidResource Include="Resources\drawable\Shadow_Hawk.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Spider.png" />

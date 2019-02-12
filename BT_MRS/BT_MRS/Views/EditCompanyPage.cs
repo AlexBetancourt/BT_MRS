@@ -36,7 +36,10 @@ namespace BT_MRS.Views
 
             _listView.ItemsSource = db.Table<Company>().OrderBy(x => x.Name).ToList();
             _listView.ItemSelected += _listView_ItemSelected;
+            _listView.Refreshing += _listView_Refreshing;
             _listView.SeparatorColor = Color.White;
+            _listView.IsPullToRefreshEnabled = true;
+
             stackLayout.Children.Add(_listView);
 
             _idEntry = new Entry();
@@ -90,6 +93,12 @@ namespace BT_MRS.Views
             stackLayout.BackgroundColor = Color.Gray;          
             Content = stackLayout;
      
+        }
+
+        private async void _listView_Refreshing(object sender, EventArgs e)
+        {
+            await DisplayAlert(null,"Refrescado","Ok");
+            _listView.EndRefresh();
         }
 
         //private async void _addButton_Clicked(object sender, EventArgs e)
