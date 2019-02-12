@@ -13,9 +13,17 @@ namespace BT_MRS.Views
 		{
             this.Title = "Main Menu";
             StackLayout stackLayout = new StackLayout();
+
+            Image img = new Image();
+            img.Source = "Company.jpg";
+            img.HeightRequest =120;
+            img.WidthRequest = 600;
+            stackLayout.Children.Add(img);
+
+
             Label lbl = new Label();
             lbl.Text = "Companies";
-            lbl.FontSize = 20;
+            lbl.FontSize = 40;
             lbl.HorizontalTextAlignment = TextAlignment.Center;
             lbl.TextColor = Color.White;
             stackLayout.Children.Add(lbl);
@@ -47,9 +55,16 @@ namespace BT_MRS.Views
             box.HeightRequest = 2;
             stackLayout.Children.Add(box);
 
+            img = new Image();
+            img.Source = "Lance.jpg";
+            img.HeightRequest = 120;
+            img.WidthRequest = 600;
+            stackLayout.Children.Add(img);
+
+
             lbl = new Label();
             lbl.Text = "Lances";
-            lbl.FontSize = 20;
+            lbl.FontSize = 40;
             lbl.HorizontalTextAlignment = TextAlignment.Center;
             lbl.TextColor = Color.White;
             stackLayout.Children.Add(lbl);
@@ -60,8 +75,19 @@ namespace BT_MRS.Views
             stackLayout.Children.Add(button);
             stackLayout.BackgroundColor = Color.Gray;
 
+            button = new Button();
+            button.Text = "Manage Lance";
+            button.Clicked += btn_Edit_Lance_Clicked;
+            stackLayout.Children.Add(button);
+            stackLayout.BackgroundColor = Color.Gray;
+
             Content = stackLayout;
 
+        }
+
+        private async void btn_Edit_Lance_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new LancesPage());
         }
 
         private async void btn_Add_Lance_Clicked(object sender, EventArgs e)
