@@ -11,7 +11,7 @@ namespace BT_MRS
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage( new Views.HomePage());
         }
 
         protected override void OnStart()
