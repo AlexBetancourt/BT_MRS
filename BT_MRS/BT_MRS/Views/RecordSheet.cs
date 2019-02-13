@@ -134,7 +134,7 @@ namespace BT_MRS.Views
             lbl = new Label();
             lbl.Text = "Tonnage:";
             lbl.TextColor = Color.White;
-            lbl.FontSize = 26;
+            lbl.FontSize = 15;
             AbsoluteLayout.SetLayoutBounds(lbl, new Rectangle(0, 25, 0.25, 50));
             AbsoluteLayout.SetLayoutFlags(lbl, AbsoluteLayoutFlags.WidthProportional);
             Layer3.Children.Add(lbl);

@@ -122,7 +122,7 @@ namespace BT_MRS.Views
             stackLayout.Children.Add(box);
 
             img = new Image();
-            img.Source = "BlankArmor.jpg";
+            img.Source = "BlankArmor.png";
             img.HeightRequest = 120;
             img.WidthRequest = 600;
             stackLayout.Children.Add(img);
