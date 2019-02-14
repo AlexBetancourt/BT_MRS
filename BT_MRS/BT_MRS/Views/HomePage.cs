@@ -147,7 +147,7 @@ namespace BT_MRS.Views
 
         private async void btn_RS_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new RecordSheet());
+            await Navigation.PushAsync(new RecordSheetGeneral());
         }
 
         private async void btn_Add_Pilot_Clicked(object sender, EventArgs e)
