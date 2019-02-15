@@ -9,8 +9,8 @@ using SQLite;
 
 namespace BT_MRS.Views
 {
-	public class EditCompanyPage : ContentPage
-	{
+    public class EditCompanyPage : ContentPage
+    {
         private ListView _listView;
         private Entry _idEntry;
         private Entry _nameEntry;
@@ -24,8 +24,8 @@ namespace BT_MRS.Views
 
         string _dbPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "BT_DB.db3");
 
-        public EditCompanyPage ()
-		{
+        public EditCompanyPage()
+        {
             this.Title = "Manage Companies";
 
             var db = new SQLiteConnection(_dbPath);
@@ -34,7 +34,18 @@ namespace BT_MRS.Views
 
             _listView = new ListView();
 
+            //_listView.ItemsSource = db.Table<Company>().OrderBy(x => x.Name).ToList();
+
+
+            var template = new DataTemplate(typeof(TextCell));
+
+            template.SetBinding(TextCell.TextProperty, "Name");
+            template.SetValue(TextCell.TextColorProperty, Color.Maroon);
+            template.SetBinding(TextCell.DetailProperty, "CurrentAffiliation");
+
+            _listView.ItemTemplate = template;
             _listView.ItemsSource = db.Table<Company>().OrderBy(x => x.Name).ToList();
+            
             _listView.ItemSelected += _listView_ItemSelected;
             _listView.Refreshing += _listView_Refreshing;
             _listView.SeparatorColor = Color.White;
@@ -90,14 +101,20 @@ namespace BT_MRS.Views
             _editButton.Text = "Delete Company";
             _editButton.Clicked += _button_Clicked; ;
             stackLayout.Children.Add(_editButton);
-            stackLayout.BackgroundColor = Color.Gray;          
+            stackLayout.BackgroundColor = Color.Gray;
             Content = stackLayout;
-     
+
         }
 
-        private async void _listView_Refreshing(object sender, EventArgs e)
+        private void _listView_Refreshing(object sender, EventArgs e)
         {
-            await DisplayAlert(null,"Refrescado","Ok");
+            var template = new DataTemplate(typeof(TextCell));
+            var db = new SQLiteConnection(_dbPath);
+            template.SetBinding(TextCell.TextProperty, "Name");
+            template.SetValue(TextCell.TextColorProperty, Color.Maroon);
+            template.SetBinding(TextCell.DetailProperty, "CurrentAffiliation");
+            _listView.ItemsSource = db.Table<Company>().OrderBy(x => x.Name).ToList();
+            //await DisplayAlert(null, "Refrescado", "Ok");
             _listView.EndRefresh();
         }
 
@@ -113,18 +130,18 @@ namespace BT_MRS.Views
             if (result)
             {
                 db.Table<Company>().Delete(x => x.Id == _company.Id);
-                
+
             }
             else
             {
                 await DisplayAlert(null, "No changes to " + _company.Name, "Ok");
             }
-                
 
-            await Navigation.PopAsync();
+            _listView.BeginRefresh();
+//            await Navigation.PopAsync();
         }
 
-        private async void _editButton_Clicked(object sender, EventArgs e)
+        private void _editButton_Clicked(object sender, EventArgs e)
         {
             var db = new SQLiteConnection(_dbPath);
             Company company = new Company
@@ -136,8 +153,8 @@ namespace BT_MRS.Views
                 FoundationYear = int.Parse(_foundationYear.Text)
             };
             db.Update(company);
-            await DisplayAlert(null, company.Name + " Updated", "Ok");
-            await Navigation.PopAsync();
+            //await DisplayAlert(null, company.Name + " Updated", "Ok");
+            //await Navigation.PopAsync();
         }
 
         private void _listView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -149,5 +166,12 @@ namespace BT_MRS.Views
             _currentAffiliation.Text = _company.CurrentAffiliation.ToString();
             _homePlanet.Text = _company.HomePlanet.ToString();
         }
+
+        protected override void OnDisappearing()
+        {
+            _editButton_Clicked(null,null);
+            base.OnDisappearing();
+        }
+
     }
 }

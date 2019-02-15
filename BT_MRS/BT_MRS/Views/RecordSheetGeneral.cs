@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -28,6 +29,8 @@ namespace BT_MRS.Views
         private Entry _hitsEntry = new Entry();
         private Stepper _hitsStepper = new Stepper();
         private Entry _consciousnessEntry = new Entry();
+
+        string _dbPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "BT_DB.db3");
 
         public RecordSheetGeneral()
         {

@@ -16,5 +16,9 @@ namespace BT_MRS.Models
         public int Age { get; set; }
         public string HomePlanet { get; set; }
         public string Affiliation { get; set; }
+        public int Kills { get; set; }
+        public string Rank { get; set; }
+        public string Callsign { get; set; }
+        public string Description { get; set; }
     }
 }

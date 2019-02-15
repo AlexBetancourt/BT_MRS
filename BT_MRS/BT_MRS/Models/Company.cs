@@ -13,6 +13,7 @@ namespace BT_MRS.Models
         public string HomePlanet { get; set; }
         public int FoundationYear { get; set; }
         public string CurrentAffiliation { get; set; }
+        public int CurrentWP { get; set; }
 
         public override string ToString()
         {
