@@ -24,7 +24,6 @@ namespace BT_MRS.Views
             img.WidthRequest = 600;
             stackLayout.Children.Add(img);
 
-
             Label lbl = new Label();
             lbl.Text = "Companies";
             lbl.FontSize = 40;
@@ -37,22 +36,13 @@ namespace BT_MRS.Views
             button.Clicked += Button_Clicked;
             stackLayout.Children.Add(button);
 
-            //button = new Button();
-            //button.Text = "Get Companies";
-            //button.Clicked += btn_Get_Companies_Clicked;
-            //stackLayout.Children.Add(button);
-
-
             button = new Button();
             button.Text = "Manage Companies";
             button.Clicked += btn_Edit_Companies_Clicked;
             stackLayout.Children.Add(button);
             stackLayout.BackgroundColor = Color.Gray;
-            //button = new Button();
-            //button.Text = "Delete Companies";
-            //button.Clicked += btn_Delete_Companies_Clicked;
-            //stackLayout.Children.Add(button);
 
+            /*
             BoxView box = new BoxView();
             box.Color = Color.Black;
             box.WidthRequest = 100;
@@ -114,8 +104,36 @@ namespace BT_MRS.Views
             button.Clicked += btn_Edit_Pilot_Clicked;
             stackLayout.Children.Add(button);
             stackLayout.BackgroundColor = Color.Gray;
+            */
 
-            box = new BoxView();
+            BoxView box = new BoxView();
+            box.Color = Color.Black;
+            box.WidthRequest = 100;
+            box.HeightRequest = 2;
+            stackLayout.Children.Add(box);
+
+            img = new Image();
+            img.Source = "Dragon.png";
+            img.HeightRequest = 120;
+            img.WidthRequest = 600;
+            stackLayout.Children.Add(img);
+
+            lbl = new Label();
+            lbl.Text = "Mech Lab";
+            lbl.FontSize = 40;
+            lbl.HorizontalTextAlignment = TextAlignment.Center;
+            lbl.TextColor = Color.White;
+            stackLayout.Children.Add(lbl);
+
+            button = new Button();
+            button.Text = "Edit Mechs";
+            button.Clicked += btn_ML_Clicked;
+            stackLayout.Children.Add(button);
+            stackLayout.BackgroundColor = Color.Gray;
+
+
+
+             box = new BoxView();
             box.Color = Color.Black;
             box.WidthRequest = 100;
             box.HeightRequest = 2;
@@ -143,6 +161,11 @@ namespace BT_MRS.Views
             CompressedLayout.SetIsHeadless(stackLayout, true);
             Content = new ScrollView { Content = stackLayout };
 
+        }
+
+        private async void btn_ML_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new MechLab());
         }
 
         private async void btn_RS_Clicked(object sender, EventArgs e)

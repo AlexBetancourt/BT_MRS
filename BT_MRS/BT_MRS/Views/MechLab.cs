@@ -9,14 +9,23 @@ namespace BT_MRS.Views
 {
     public class MechLab : ContentPage
     {
+        private ListView _listView;
+        private Entry _idEntry;
+        private Entry _nameEntry;
+        private Entry _homePlanet;
+        private Entry _foundationYear;
+        private Entry _currentAffiliation;
+
         public MechLab()
         {
-            Content = new StackLayout
-            {
-                Children = {
-                    new Label { Text = "Welcome to Xamarin.Forms!" }
-                }
-            };
+
+            this.Title = "Main Menu";
+            var scroll = new ScrollView();
+            Content = scroll;
+            StackLayout stackLayout = new StackLayout();
+
+
+
         }
     }
 }
