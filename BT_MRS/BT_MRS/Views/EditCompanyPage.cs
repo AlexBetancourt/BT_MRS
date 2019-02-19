@@ -37,21 +37,21 @@ namespace BT_MRS.Views
             //_listView.ItemsSource = db.Table<Company>().OrderBy(x => x.Name).ToList();
 
 
-            var template = new DataTemplate(typeof(TextCell));
+                var template = new DataTemplate(typeof(TextCell));
 
-            template.SetBinding(TextCell.TextProperty, "Name");
-            template.SetValue(TextCell.TextColorProperty, Color.Maroon);
-            template.SetBinding(TextCell.DetailProperty, "CurrentAffiliation");
+                template.SetBinding(TextCell.TextProperty, "Name");
+                template.SetValue(TextCell.TextColorProperty, Color.Maroon);
+                template.SetBinding(TextCell.DetailProperty, "CurrentAffiliation");
 
-            _listView.ItemTemplate = template;
-            _listView.ItemsSource = db.Table<Company>().OrderBy(x => x.Name).ToList();
+                _listView.ItemTemplate = template;
+                _listView.ItemsSource = db.Table<Company>().OrderBy(x => x.Name).ToList();
             
-            _listView.ItemSelected += _listView_ItemSelected;
-            _listView.Refreshing += _listView_Refreshing;
-            _listView.SeparatorColor = Color.White;
-            _listView.IsPullToRefreshEnabled = true;
+                _listView.ItemSelected += _listView_ItemSelected;
+                _listView.Refreshing += _listView_Refreshing;
+                _listView.SeparatorColor = Color.White;
+                _listView.IsPullToRefreshEnabled = true;
 
-            stackLayout.Children.Add(_listView);
+                stackLayout.Children.Add(_listView);
 
             _idEntry = new Entry();
             _idEntry.Placeholder = "ID";

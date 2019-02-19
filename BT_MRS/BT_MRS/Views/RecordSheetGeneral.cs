@@ -1,9 +1,10 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-
+using BT_MRS.Models;
 using Xamarin.Forms;
 
 namespace BT_MRS.Views
@@ -29,11 +30,17 @@ namespace BT_MRS.Views
         private Entry _hitsEntry = new Entry();
         private Stepper _hitsStepper = new Stepper();
         private Entry _consciousnessEntry = new Entry();
+        private ListView _listWeapons = new ListView();
 
+        private Weapon _weapon = new Weapon();
+            
         string _dbPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "BT_DB.db3");
 
         public RecordSheetGeneral()
         {
+
+
+            var db = new SQLiteConnection(_dbPath);
             AbsoluteLayout Layer1 = new AbsoluteLayout();
             Layer1.BackgroundColor = Color.Maroon;
 
@@ -338,6 +345,24 @@ namespace BT_MRS.Views
 
 
             //TODO: Agregar seccion para Weapons
+            _listWeapons = new ListView();
+
+            var template = new DataTemplate(typeof(TextCell));
+
+            template.SetBinding(TextCell.TextProperty, "Name");
+            template.SetValue(TextCell.TextColorProperty, Color.Maroon);
+            template.SetBinding(TextCell.DetailProperty, "CurrentAffiliation");
+
+            _listWeapons.ItemTemplate = template;
+            _listWeapons.ItemsSource = db.Table<Weapon>().OrderBy(x => x.Name).ToList();
+
+            _listWeapons.ItemSelected += _listView_ItemSelected;
+            _listWeapons.Refreshing += _listView_Refreshing;
+            _listWeapons.SeparatorColor = Color.White;
+            _listWeapons.IsPullToRefreshEnabled = true;
+
+            Layer1.Children.Add(_listWeapons);
+
             //  Lista para mostrar las armas equipadas
             //  Agregar logica para disparar armas con sonido
             //  Agregar logica para almacenar el Heat generado
@@ -362,6 +387,24 @@ namespace BT_MRS.Views
             CompressedLayout.SetIsHeadless(Layer1, true);
             Content = new ScrollView { Content = Layer1 };
         }
+
+        private void _listView_Refreshing(object sender, EventArgs e)
+        {
+            DataTemplate template = new DataTemplate(typeof(TextCell));
+            var db = new SQLiteConnection(_dbPath);
+            template.SetBinding(TextCell.TextProperty, "Name");
+            template.SetValue(TextCell.TextColorProperty, Color.Maroon);
+            template.SetBinding(TextCell.DetailProperty, "CurrentAffiliation");
+            _listWeapons.ItemsSource = db.Table<Company>().OrderBy(x => x.Name).ToList();
+            //await DisplayAlert(null, "Refrescado", "Ok");
+            _listWeapons.EndRefresh();
+        }
+
+        private void _listView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
         protected override void OnDisappearing()
         {
             //TODO: Agregar codigo para actualizar base de datos con datos en pantalla
