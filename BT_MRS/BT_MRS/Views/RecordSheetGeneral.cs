@@ -42,7 +42,7 @@ namespace BT_MRS.Views
 
             var db = new SQLiteConnection(_dbPath);
             AbsoluteLayout Layer1 = new AbsoluteLayout();
-            Layer1.BackgroundColor = Color.Maroon;
+            Layer1.BackgroundColor = Color.Gray;
 
             _mechModel = new Label();
             _mechModel.Text = "CMD-1B Commando";
@@ -59,7 +59,7 @@ namespace BT_MRS.Views
             _mechName.TextChanged += Txt_TextChanged;
             _mechName.Text = "Commando";
             _mechName.TextColor = Color.White;
-            _mechName.BackgroundColor = Color.Maroon;
+            _mechName.BackgroundColor = Color.Gray;
             AbsoluteLayout.SetLayoutBounds(_mechName, new Rectangle(0.5, 180, 1, 50));
             AbsoluteLayout.SetLayoutFlags(_mechName, AbsoluteLayoutFlags.XProportional);
             AbsoluteLayout.SetLayoutFlags(_mechName, AbsoluteLayoutFlags.WidthProportional);
@@ -71,7 +71,7 @@ namespace BT_MRS.Views
             Layer1.Children.Add(_mechImage);
 
             AbsoluteLayout Layer2 = new AbsoluteLayout();
-            Layer2.BackgroundColor = Color.Black;
+            Layer2.BackgroundColor = Color.DarkGray;
             AbsoluteLayout.SetLayoutBounds(Layer2, new Rectangle(0, 220, 1, 50));
             AbsoluteLayout.SetLayoutFlags(Layer2, AbsoluteLayoutFlags.WidthProportional);
 
@@ -169,7 +169,7 @@ namespace BT_MRS.Views
             _tonnageEntry = new Entry();
             _tonnageEntry.Text = "50";
             _tonnageEntry.TextColor = Color.White;
-            _tonnageEntry.BackgroundColor = Color.Maroon;
+            _tonnageEntry.BackgroundColor = Color.Gray;
             _tonnageEntry.Keyboard = Keyboard.Numeric;
             AbsoluteLayout.SetLayoutBounds(_tonnageEntry, new Rectangle(130, 0, 0.75, 50));
             AbsoluteLayout.SetLayoutFlags(_tonnageEntry, AbsoluteLayoutFlags.WidthProportional);
@@ -192,7 +192,7 @@ namespace BT_MRS.Views
 
             _heatSinksEntry = new Entry();
             _heatSinksEntry.TextColor = Color.White;
-            _heatSinksEntry.BackgroundColor = Color.Maroon;
+            _heatSinksEntry.BackgroundColor = Color.Gray;
             _heatSinksEntry.Keyboard = Keyboard.Numeric;
             AbsoluteLayout.SetLayoutBounds(_heatSinksEntry, new Rectangle(75, 0, 0.25, 50));
             AbsoluteLayout.SetLayoutFlags(_heatSinksEntry, AbsoluteLayoutFlags.WidthProportional);
@@ -224,7 +224,7 @@ namespace BT_MRS.Views
             _pilotEntry = new Entry();
             _pilotEntry.Text = "50";
             _pilotEntry.TextColor = Color.White;
-            _pilotEntry.BackgroundColor = Color.Maroon;
+            _pilotEntry.BackgroundColor = Color.Gray;
             _pilotEntry.Keyboard = Keyboard.Numeric;
             AbsoluteLayout.SetLayoutBounds(_pilotEntry, new Rectangle(130, 0, 0.75, 50));
             AbsoluteLayout.SetLayoutFlags(_pilotEntry, AbsoluteLayoutFlags.WidthProportional);
@@ -249,7 +249,7 @@ namespace BT_MRS.Views
             _pilotingSkill = new Entry();
             _pilotingSkill.Text = "4";
             _pilotingSkill.TextColor = Color.White;
-            _pilotingSkill.BackgroundColor = Color.Maroon;
+            _pilotingSkill.BackgroundColor = Color.Gray;
             _pilotingSkill.Keyboard = Keyboard.Numeric;
             AbsoluteLayout.SetLayoutBounds(_pilotingSkill, new Rectangle(130, 0, 0.75, 50));
             AbsoluteLayout.SetLayoutFlags(_pilotingSkill, AbsoluteLayoutFlags.WidthProportional);
@@ -273,7 +273,7 @@ namespace BT_MRS.Views
             _gunnerySkill = new Entry();
             _gunnerySkill.Text = "4";
             _gunnerySkill.TextColor = Color.White;
-            _gunnerySkill.BackgroundColor = Color.Maroon;
+            _gunnerySkill.BackgroundColor = Color.Gray;
             _gunnerySkill.Keyboard = Keyboard.Numeric;
             AbsoluteLayout.SetLayoutBounds(_gunnerySkill, new Rectangle(130, 0, 0.75, 50));
             AbsoluteLayout.SetLayoutFlags(_gunnerySkill, AbsoluteLayoutFlags.WidthProportional);
@@ -298,7 +298,7 @@ namespace BT_MRS.Views
 
             _hitsEntry = new Entry();
             _hitsEntry.TextColor = Color.White;
-            _hitsEntry.BackgroundColor = Color.Maroon;
+            _hitsEntry.BackgroundColor = Color.Gray;
             _hitsEntry.Keyboard = Keyboard.Numeric;
             AbsoluteLayout.SetLayoutBounds(_hitsEntry, new Rectangle(75, 0, 0.25, 50));
             AbsoluteLayout.SetLayoutFlags(_hitsEntry, AbsoluteLayoutFlags.WidthProportional);
@@ -334,7 +334,7 @@ namespace BT_MRS.Views
             _consciousnessEntry = new Entry();
             _consciousnessEntry.Text = "0";
             _consciousnessEntry.TextColor = Color.White;
-            _consciousnessEntry.BackgroundColor = Color.Maroon;
+            _consciousnessEntry.BackgroundColor = Color.Gray;
             _consciousnessEntry.Keyboard = Keyboard.Numeric;
             AbsoluteLayout.SetLayoutBounds(_consciousnessEntry, new Rectangle(130, 0, 0.75, 50));
             AbsoluteLayout.SetLayoutFlags(_consciousnessEntry, AbsoluteLayoutFlags.WidthProportional);
@@ -345,24 +345,31 @@ namespace BT_MRS.Views
 
 
             //TODO: Agregar seccion para Weapons
+            AbsoluteLayout Layer11 = new AbsoluteLayout();
+            Layer11.BackgroundColor = Color.Transparent; ;
+            AbsoluteLayout.SetLayoutBounds(Layer11, new Rectangle(0, 630, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));
+
+
             _listWeapons = new ListView();
 
             var template = new DataTemplate(typeof(TextCell));
 
             template.SetBinding(TextCell.TextProperty, "Name");
-            template.SetValue(TextCell.TextColorProperty, Color.Maroon);
+            template.SetValue(TextCell.TextColorProperty, Color.Gray);
             template.SetBinding(TextCell.DetailProperty, "CurrentAffiliation");
 
             _listWeapons.ItemTemplate = template;
-            _listWeapons.ItemsSource = db.Table<Weapon>().OrderBy(x => x.Name).ToList();
+            //_listWeapons.ItemsSource = db.Table<Weapon>().OrderBy(x => x.Name).ToList();
 
             _listWeapons.ItemSelected += _listView_ItemSelected;
             _listWeapons.Refreshing += _listView_Refreshing;
             _listWeapons.SeparatorColor = Color.White;
             _listWeapons.IsPullToRefreshEnabled = true;
 
-            Layer1.Children.Add(_listWeapons);
+            Layer11.Children.Add(_listWeapons);
 
+
+            Layer1.Children.Add(Layer11);
             //  Lista para mostrar las armas equipadas
             //  Agregar logica para disparar armas con sonido
             //  Agregar logica para almacenar el Heat generado
@@ -393,16 +400,16 @@ namespace BT_MRS.Views
             DataTemplate template = new DataTemplate(typeof(TextCell));
             var db = new SQLiteConnection(_dbPath);
             template.SetBinding(TextCell.TextProperty, "Name");
-            template.SetValue(TextCell.TextColorProperty, Color.Maroon);
+            template.SetValue(TextCell.TextColorProperty, Color.Gray);
             template.SetBinding(TextCell.DetailProperty, "CurrentAffiliation");
             _listWeapons.ItemsSource = db.Table<Company>().OrderBy(x => x.Name).ToList();
             //await DisplayAlert(null, "Refrescado", "Ok");
             _listWeapons.EndRefresh();
         }
 
-        private void _listView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        private async void _listView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            throw new NotImplementedException();
+            await DisplayAlert(null, "Refreshed ListView", "Ok");
         }
 
         protected override void OnDisappearing()

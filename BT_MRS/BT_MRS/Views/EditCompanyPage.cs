@@ -111,7 +111,7 @@ namespace BT_MRS.Views
             var template = new DataTemplate(typeof(TextCell));
             var db = new SQLiteConnection(_dbPath);
             template.SetBinding(TextCell.TextProperty, "Name");
-            template.SetValue(TextCell.TextColorProperty, Color.Maroon);
+            template.SetValue(TextCell.TextColorProperty, Color.Gray);
             template.SetBinding(TextCell.DetailProperty, "CurrentAffiliation");
             _listView.ItemsSource = db.Table<Company>().OrderBy(x => x.Name).ToList();
             //await DisplayAlert(null, "Refrescado", "Ok");

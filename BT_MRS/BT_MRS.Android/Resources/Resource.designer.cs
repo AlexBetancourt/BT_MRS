@@ -1462,13 +1462,13 @@ namespace BT_MRS.Droid
 			public const int launcher_background = 2131558475;
 			
 			// aapt resource value: 0x7f0d001f
-			public const int material_blue_grey_800 = 2131558431;
+			public const int material_blue_Gray_800 = 2131558431;
 			
 			// aapt resource value: 0x7f0d0020
-			public const int material_blue_grey_900 = 2131558432;
+			public const int material_blue_Gray_900 = 2131558432;
 			
 			// aapt resource value: 0x7f0d0021
-			public const int material_blue_grey_950 = 2131558433;
+			public const int material_blue_Gray_950 = 2131558433;
 			
 			// aapt resource value: 0x7f0d0022
 			public const int material_deep_teal_200 = 2131558434;
@@ -1477,25 +1477,25 @@ namespace BT_MRS.Droid
 			public const int material_deep_teal_500 = 2131558435;
 			
 			// aapt resource value: 0x7f0d0024
-			public const int material_grey_100 = 2131558436;
+			public const int material_Gray_100 = 2131558436;
 			
 			// aapt resource value: 0x7f0d0025
-			public const int material_grey_300 = 2131558437;
+			public const int material_Gray_300 = 2131558437;
 			
 			// aapt resource value: 0x7f0d0026
-			public const int material_grey_50 = 2131558438;
+			public const int material_Gray_50 = 2131558438;
 			
 			// aapt resource value: 0x7f0d0027
-			public const int material_grey_600 = 2131558439;
+			public const int material_Gray_600 = 2131558439;
 			
 			// aapt resource value: 0x7f0d0028
-			public const int material_grey_800 = 2131558440;
+			public const int material_Gray_800 = 2131558440;
 			
 			// aapt resource value: 0x7f0d0029
-			public const int material_grey_850 = 2131558441;
+			public const int material_Gray_850 = 2131558441;
 			
 			// aapt resource value: 0x7f0d002a
-			public const int material_grey_900 = 2131558442;
+			public const int material_Gray_900 = 2131558442;
 			
 			// aapt resource value: 0x7f0d0049
 			public const int notification_action_color_filter = 2131558473;
@@ -3081,7 +3081,7 @@ namespace BT_MRS.Droid
 			public const int ic_mr_button_disconnected_light = 2130837827;
 			
 			// aapt resource value: 0x7f020144
-			public const int ic_mr_button_grey = 2130837828;
+			public const int ic_mr_button_Gray = 2130837828;
 			
 			// aapt resource value: 0x7f020145
 			public const int ic_vol_type_speaker_dark = 2130837829;
